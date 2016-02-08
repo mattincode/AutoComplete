@@ -71,6 +71,9 @@
     <Reference Include="System.Net" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
+    <Reference Include="Telerik.Windows.Controls">
+      <HintPath>..\..\..\..\..\..\Source Control\TFS\Securitas GSP\Main\Source\libs\Telerik\Telerik.Windows.Controls.dll</HintPath>
+    </Reference>
     <Reference Include="XamlSpy, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
       <HintPath>..\packages\XamlSpyLibs.3.0.3\lib\sl5\XamlSpy.dll</HintPath>
       <Private>True</Private>
@@ -106,6 +109,9 @@
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Remove.png" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Silverlight\$(SilverlightVersion)\Microsoft.Silverlight.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

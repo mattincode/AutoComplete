@@ -1,5 +1,90 @@
-﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Class="SilverlightApplication1.App" xmlns:spy="clr-namespace:FirstFloor.XamlSpy;assembly=XamlSpy">
+﻿<Application xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:telerik="http://schemas.telerik.com/2008/xaml/presentation" x:Class="SilverlightApplication1.App" xmlns:spy="clr-namespace:FirstFloor.XamlSpy;assembly=XamlSpy">
     <Application.Resources>
-        
+        <Style x:Key="ClearButtonStyle" TargetType="telerik:RadButton">
+            <Setter Property="Width" Value="19" />
+            <Setter Property="Height" Value="19" />
+            <Setter Property="HorizontalAlignment" Value="Right" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="Margin" Value="0,0,3,0" />
+            <Setter Property="Cursor" Value="Hand" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="telerik:RadButton">
+                        <!--<Image Source="/Securitas.GSP.RiaClient.UIResources;component/Images/Delete.png"></Image>-->
+
+
+
+
+                        <Grid Width="14" Height="14" spy:XamlMetadata.XamlSpyServiceSettings="127.0.0.1|4530|11197" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\App.xaml|19">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused" />
+                                    <VisualState x:Name="Unfocused" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualStateGroup.Transitions>
+                                        <VisualTransition GeneratedDuration="00:00:00.2000000" />
+                                    </VisualStateGroup.Transitions>
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="MouseOver">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFBD7777" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFD63030" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFBD7777" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="ellipse" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFD63030" />
+                                            </ColorAnimationUsingKeyFrames>
+                                            <ColorAnimationUsingKeyFrames BeginTime="00:00:00" Duration="00:00:00.0010000" Storyboard.TargetName="path" Storyboard.TargetProperty="(Shape.Stroke).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="00:00:00" Value="#FFD63030" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <Ellipse x:Name="ellipse" Fill="#FF787878" Stroke="#FF494949" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\App.xaml|71" />
+
+
+                            <Path x:Name="path" Margin="4.5" HorizontalAlignment="Center" VerticalAlignment="Center" Data="M0.5,0.5 L8.5,8.5 M8.5000095,0.50000072 L0.50000954,8.500001" Stretch="Fill" Stroke="White" UseLayoutRounding="False" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\App.xaml|74" />
+
+
+
+
+
+
+
+                            <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" Visibility="Collapsed" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\App.xaml|82" />
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
     </Application.Resources>
 </Application>

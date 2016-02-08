@@ -1,13 +1,7 @@
 ﻿using System;
-using System.Net;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 
 namespace SilverlightApplication1.AutoCompleteStates
 {
@@ -15,50 +9,37 @@ namespace SilverlightApplication1.AutoCompleteStates
     /// Represents the view when the user is editing the textbox.
     /// </summary>
     internal class AutoCompleteEditing : AutoCompleteBase
-    {
-        public override event ErrorHandler OnError;
-        public override event StateChangedHandler OnStateChanged;
-
-        public override void Edit(string updatedText)
+    {        
+        public override void Dispose()
         {
-            // Show listbox
-            // Highlight any matching text in the listbox
-            throw new NotImplementedException();
+            var clearBtn = UserControl.ClearBtn;
+            clearBtn.Click -= clearBtn_OnClick;
         }
-
-        public override void EndEdit()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void Delete()
-        {
-            throw new NotImplementedException();
-        }
-
-        public override void ShowTooltip()
-        {
-            throw new NotImplementedException();
-        }
-
-
-        //TODO... We should add all the elements in the baseclass and don't remove them...
+        
         public AutoCompleteEditing(AutoCompleteControl control)
             : base(control)
         {
-            //var textBox = new TextBox();
-            //textBox.BorderThickness = new Thickness(2);
-            //textBox.Foreground = new SolidColorBrush(Colors.Black);
-            ////textBox.Opacity = 0.6;
-            //textBox.Width = Canvas.Width;
-            //textBox.Height = Canvas.Height;
-            //Canvas.Children.Add(textBox);
-            //textBox.KeyDown += TextBox_KeyDown;
+            var clearBtn = UserControl.ClearBtn;
+            clearBtn.Click += clearBtn_OnClick;
+            UpdateUx();
         }
+
+        private void clearBtn_OnClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            UserControl.ItemTextBox.Text ="";
+            UserControl.ItemTextBox.Focus();
+            UserControl.SetState(new AutoCompleteWatermark(UserControl));
+        }                       
 
         private void UpdateUx()
         {
-            
+            System.Diagnostics.Debug.WriteLine("Update editing");
+            var txt = UserControl.ItemTextBox;
+            txt.Text = "";
+            txt.FontStyle = FontStyles.Normal;
+            txt.Foreground = new SolidColorBrush(Colors.Black);
+            UserControl.ClearBtn.Visibility = Visibility.Visible;
+
         }
     }
 

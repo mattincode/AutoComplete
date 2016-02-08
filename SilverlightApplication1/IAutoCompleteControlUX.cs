@@ -1,4 +1,6 @@
 ﻿using System.Windows.Controls;
+using Telerik.Windows.Controls;
+using ListBox = System.Windows.Controls.ListBox;
 
 namespace SilverlightApplication1
 {
@@ -6,6 +8,7 @@ namespace SilverlightApplication1
     {
         TextBox ItemTextBox { get; }
         Border OuterBorder { get; }
-        ListBox ItemsListBox { get; }    
+        ListBox ItemsListBox { get; }
+        RadButton ClearBtn { get; }
     }
 }

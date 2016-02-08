@@ -1,7 +1,11 @@
 ﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
+using FirstFloor.XamlSpy;
 using SilverlightApplication1.AutoCompleteStates;
+using Telerik.Windows.Controls;
+using ListBox = System.Windows.Controls.ListBox;
 
 namespace SilverlightApplication1
 {
@@ -12,6 +16,7 @@ namespace SilverlightApplication1
         public TextBox ItemTextBox { get; private set; }
         public Border OuterBorder { get; private set; }
         public ListBox ItemsListBox { get; private set; }
+        public RadButton ClearBtn { get; private set; }
 
         #endregion Properties
 
@@ -70,19 +75,21 @@ namespace SilverlightApplication1
         // The interaction behaviour is decided by the current state.
         public void IntitializeUx()
         {
-            // Add 
-            ItemTextBox = new TextBox();
-            OuterBorder = new Border();
-            OuterBorder.Child = ItemTextBox;
-            ItemsListBox = new ListBox();            
-            //textBox.BorderThickness = new Thickness(2);
-            //textBox.Text = UserControl.Watermark;
-            //textBox.Foreground = new SolidColorBrush(Colors.Gray);
-            ////textBox.Opacity = 0.6;
-            //textBox.Width = Canvas.Width;
-            //textBox.Height = Canvas.Height;
-            //Canvas.Children.Add(textBox);
-            //textBox.KeyDown += TextBox_KeyDown;
+            var grid = new Grid() {HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch};
+            // Clear button
+            var btnImage = new Image() { Width = 16, Height = 16, Source = (ImageSource)new ImageSourceConverter().ConvertFromString("/SilverlightApplication1;component/Images/Remove.png"), HorizontalAlignment = HorizontalAlignment.Right, VerticalAlignment = VerticalAlignment.Center };
+            ClearBtn = new RadButton() {Content = btnImage, Style = Application.Current.Resources["ClearButtonStyle"] as Style};
+            // Item textbox
+            ItemTextBox = new TextBox() { HorizontalAlignment = HorizontalAlignment.Stretch, VerticalAlignment = VerticalAlignment.Stretch, VerticalContentAlignment = VerticalAlignment.Stretch };
+            grid.Children.Add(ItemTextBox);
+            grid.Children.Add(ClearBtn);
+            // Border
+            OuterBorder = new Border() {Width = this.Width, Height = this.Height};
+            OuterBorder.Child = grid;
+            // Items list
+            ItemsListBox = new ListBox();
+            //TODO - Add listbox... where...
+            Content = OuterBorder;
         }
 
     }
