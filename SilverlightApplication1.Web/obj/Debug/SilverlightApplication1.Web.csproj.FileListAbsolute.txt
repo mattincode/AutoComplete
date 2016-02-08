@@ -1,0 +1,8 @@
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\bin\SilverlightApplication1.Web.dll.config
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\bin\SilverlightApplication1.Web.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\bin\SilverlightApplication1.Web.pdb
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\obj\Debug\SilverlightApplication1.Web.csprojResolveAssemblyReference.cache
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\obj\Debug\SilverlightApplication1.Web.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\obj\Debug\SilverlightApplication1.Web.pdb
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\bin\XamlSpy.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1.Web\obj\Debug\xamlspy\_XamlSpyAssemblyInfo.cs

@@ -1,0 +1,16 @@
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\SilverlightApplication1.csprojResolveAssemblyReference.cache
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\App.g.cs
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\MainPage.g.cs
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\SilverlightApplication1.g.resources
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\SilverlightApplication1.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\SilverlightApplication1.pdb
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\AppManifest.xaml
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\SilverlightApplication1.xap
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\SilverlightApplication1TestPage.html
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\SilverlightApplication1.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\SilverlightApplication1.pdb
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\XapCacheFile.xml
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\Bin\Debug\XamlSpy.dll
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\xamlspy\App.xaml
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\xamlspy\MainPage.xaml
+C:\Users\mandersson\Documents\Visual Studio 2015\Projects\SilverlightApplication1\SilverlightApplication1\obj\Debug\xamlspy\_XamlSpyAssemblyInfo.cs
