@@ -6,9 +6,8 @@ namespace SilverlightApplication1
 {
     interface IAutoCompleteControlUx
     {
-        TextBox ItemTextBox { get; }
-        Border OuterBorder { get; }
-        ListBox ItemsListBox { get; }
+        AutoCompleteBox ItemTextBox { get; }
+        //Border OuterBorder { get; }
         RadButton ClearBtn { get; }
     }
 }

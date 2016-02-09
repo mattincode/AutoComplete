@@ -1,6 +1,8 @@
-﻿<xapCache source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\Bin\Debug\SilverlightApplication1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2016-02-08 11:05:00">
-  <file source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\obj\Debug\SilverlightApplication1.dll" archivePath="SilverlightApplication1.dll" lastWriteTime="2016-02-08 11:05:00" />
+﻿<xapCache source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\Bin\Debug\SilverlightApplication1.xap" wasSigned="False" certificateThumbprint="" TimeStampUrl="" lastWriteTime="2016-02-08 16:46:20">
+  <file source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\obj\Debug\SilverlightApplication1.dll" archivePath="SilverlightApplication1.dll" lastWriteTime="2016-02-08 16:46:19" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.Input.dll" archivePath="System.Windows.Controls.Input.dll" lastWriteTime="2011-11-18 16:40:20" />
   <file source="C:\Source Control\TFS\Securitas GSP\Main\Source\libs\Telerik\Telerik.Windows.Controls.dll" archivePath="Telerik.Windows.Controls.dll" lastWriteTime="2015-06-30 11:44:55" />
   <file source="C:\Users\mandersson\Documents\GitHub\AutoComplete\packages\XamlSpyLibs.3.0.3\lib\sl5\XamlSpy.dll" archivePath="XamlSpy.dll" lastWriteTime="2016-02-05 15:20:21" />
-  <file source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2016-02-08 10:47:50" />
+  <file source="C:\Program Files (x86)\Microsoft SDKs\Silverlight\v5.0\Libraries\Client\System.Windows.Controls.dll" archivePath="System.Windows.Controls.dll" lastWriteTime="2011-11-18 16:40:20" />
+  <file source="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\Bin\Debug\AppManifest.xaml" archivePath="AppManifest.xaml" lastWriteTime="2016-02-08 15:31:55" />
 </xapCache>

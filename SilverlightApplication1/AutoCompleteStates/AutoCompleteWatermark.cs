@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Windows.Media;
+using SilverlightApplication1.Controls;
 
 namespace SilverlightApplication1.AutoCompleteStates
 {
@@ -22,7 +23,7 @@ namespace SilverlightApplication1.AutoCompleteStates
                 var txt = UserControl.ItemTextBox;
                 txt.KeyDown += txt_KeyDown;
                 txt.GotFocus += txt_GotFocus;
-                UpdateUx();
+                DrawUserInterface();
             }
             else
             {
@@ -30,15 +31,13 @@ namespace SilverlightApplication1.AutoCompleteStates
             }
         }
 
-        private void UpdateUx()
-        {            
-            UserControl.ItemsListBox.Visibility = Visibility.Collapsed; // TODO: Each state should just draw the parts that belongs to it... not hiding other stuff!            
+        private void DrawUserInterface()
+        {                             
             UserControl.BorderBrush = new SolidColorBrush(Colors.Black);
-            UserControl.ClearBtn.Visibility = Visibility.Collapsed;            
-            // TODO: Hide delete button            
+            UserControl.ClearBtn.Visibility = Visibility.Collapsed;                 
 
             var txt = UserControl.ItemTextBox;
-            txt.Foreground = new SolidColorBrush(Colors.LightGray);
+            txt.Foreground = new SolidColorBrush(Colors.DarkGray);
             txt.FontStyle = FontStyles.Italic;
             txt.Text = UserControl.Watermark;
 

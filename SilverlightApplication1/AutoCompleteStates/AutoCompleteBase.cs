@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Controls;
+using SilverlightApplication1.Controls;
 
 namespace SilverlightApplication1.AutoCompleteStates
 {
