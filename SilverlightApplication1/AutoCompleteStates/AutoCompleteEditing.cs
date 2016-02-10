@@ -32,8 +32,9 @@ namespace SilverlightApplication1.AutoCompleteStates
 
         private void ClearEditedText()
         {
+            UserControl.ItemTextBox.IsTextCompletionEnabled = false; 
             UserControl.ItemTextBox.Text = "";
-            UserControl.ItemTextBox.Focus();
+            //UserControl.ItemTextBox.Focus();            
             UserControl.SetState(new AutoCompleteWatermark(UserControl));
         }                
 
@@ -42,6 +43,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             var txt = UserControl.ItemTextBox;
             txt.Text = "";
             txt.FontStyle = FontStyles.Normal;
+            txt.IsTextCompletionEnabled = true; // Populates the textbox with the topmost hit.
             txt.Foreground = new SolidColorBrush(Colors.Black);
             UserControl.ClearBtn.Visibility = Visibility.Visible;
             UserControl.ItemTextBox.ItemsSource = UserControl.Items.Select(item => item.Name);

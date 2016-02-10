@@ -9,7 +9,7 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <StackPanel x:Name="LayoutRoot" Background="White">
-        <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" Width="120" Height="30"/>
+        <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" Width="200" Height="30"/>
         <ListBox ItemsSource="{Binding Names}">
             <ListBox.ItemTemplate>
                 <DataTemplate>

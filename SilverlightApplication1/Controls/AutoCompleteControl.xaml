@@ -11,9 +11,7 @@
 
     <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
 
-        <telerik:RadButton x:Name="ClearBtnX" Style="{StaticResource ClearButtonStyle}" >
-            <Image Width="16" Height="16" Source="/SilverlightApplication1;component/Images/Remove.png" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" />
-        </telerik:RadButton>
+
         <sdk:AutoCompleteBox x:Name="ItemTextBoxX" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
             <sdk:AutoCompleteBox.ItemTemplate>
                 <DataTemplate>
@@ -21,7 +19,9 @@
                 </DataTemplate>
             </sdk:AutoCompleteBox.ItemTemplate>
         </sdk:AutoCompleteBox>
-
+        <telerik:RadButton x:Name="ClearBtnX" Style="{StaticResource ClearButtonStyle}" >
+            <Image Width="16" Height="16" Source="/SilverlightApplication1;component/Images/Remove.png" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" />
+        </telerik:RadButton>
 
 
     </Grid>
