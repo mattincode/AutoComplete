@@ -31,16 +31,18 @@ namespace SilverlightApplication1
             list.Add(new AutoCompleteItem(3, "12346 Freddan Olsson"));
             list.Add(new AutoCompleteItem(4, "22341 Greken Andersson"));
             list.Add(new AutoCompleteItem(5, "22345 Karl-Oskar Andersson"));
-            Items = new ObservableCollection<AutoCompleteItem>(list);
+            Names = new ObservableCollection<AutoCompleteItem>(list);
             
         }
 
         private ObservableCollection<AutoCompleteItem> _items;
 
-        public ObservableCollection<AutoCompleteItem> Items
+        public ObservableCollection<AutoCompleteItem> Names
         {
             get { return _items; }
-            set { _items = value; RaisePropertyChanged(() => Items); }
+            set { _items = value; RaisePropertyChanged(() => Names); }
         }
+
+
     }
 }

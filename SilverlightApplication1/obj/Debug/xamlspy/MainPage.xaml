@@ -8,7 +8,14 @@
 
 
 
-    <Grid x:Name="LayoutRoot" Background="White" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\MainPage.xaml|11">
-        <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Items}" Width="120" Height="30" />
-    </Grid>
+    <StackPanel x:Name="LayoutRoot" Background="White" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\MainPage.xaml|11">
+        <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" Width="120" Height="30" />
+        <ListBox ItemsSource="{Binding Names}" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\MainPage.xaml|13">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" Width="80" spy:XamlMetadata.SourceInfo="C:\Users\mandersson\Documents\GitHub\AutoComplete\SilverlightApplication1\MainPage.xaml|16" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
 </UserControl>

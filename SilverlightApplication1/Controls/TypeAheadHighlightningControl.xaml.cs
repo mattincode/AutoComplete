@@ -20,7 +20,7 @@ namespace SilverlightApplication1.Controls
         }
 
         public static readonly DependencyProperty TypeAheadHighlightningControlProperty = DependencyProperty.Register("HighlightedText", typeof(string), typeof(TypeAheadHighlightningControl), new PropertyMetadata(string.Empty, PropertyChangedCallback));
-        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Text", typeof(string), typeof(TypeAheadHighlightningControl), new PropertyMetadata(string.Empty, PropertyChangedCallback));
+        public static readonly DependencyProperty TextProperty = DependencyProperty.Register("Name", typeof(string), typeof(TypeAheadHighlightningControl), new PropertyMetadata(string.Empty, PropertyChangedCallback));
         public static readonly DependencyProperty TypeProperty = DependencyProperty.Register("Type", typeof(string), typeof(TypeAheadHighlightningControl), new PropertyMetadata(null));
         public static readonly DependencyProperty ShowImageProperty = DependencyProperty.Register("ShowImage", typeof(bool), typeof(TypeAheadHighlightningControl), new PropertyMetadata(null));
 

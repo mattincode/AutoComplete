@@ -2,13 +2,13 @@
 {
     public class AutoCompleteItem
     {
-        public AutoCompleteItem(int id, string text)
+        public AutoCompleteItem(int id, string name)
         {
             Id = id;
-            Text = text;
+            Name = name;
         }
 
         public int Id{ get; set; }
-        public string Text { get; set; }        
+        public string Name { get; set; }        
     }
 }

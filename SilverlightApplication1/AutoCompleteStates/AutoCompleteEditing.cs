@@ -44,7 +44,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             txt.FontStyle = FontStyles.Normal;
             txt.Foreground = new SolidColorBrush(Colors.Black);
             UserControl.ClearBtn.Visibility = Visibility.Visible;
-            UserControl.ItemTextBox.ItemsSource = new ObservableCollection<string>() {"12345 Masdf", "12356 Olle"}; //UserControl.Items;
+            UserControl.ItemTextBox.ItemsSource = UserControl.Items.Select(item => item.Name);
         }
     }
 

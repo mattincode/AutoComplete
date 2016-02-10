@@ -85,7 +85,7 @@ namespace SilverlightApplication1
             sb.Append("2006/xaml/presentation' ");
             sb.Append("xmlns:x='http://schemas.microsoft.com/winfx/2006/xaml' ");
             sb.Append("xmlns:controls='clr-namespace:" + dataItemControlNamespace + ";assembly=SilverlightApplication1'> ");
-            sb.Append("<controls:TypeAheadHighlightningControl Text='{Binding Text}' HighlightedText='{ Binding Text, ElementName = AutoCompleteTxt}'/>");
+            sb.Append("<controls:TypeAheadHighlightningControl Name='{Binding Name}' HighlightedText='{ Binding Name, ElementName = AutoCompleteTxt}'/>");
             sb.Append("</DataTemplate>");                        
             return XamlReader.Load(sb.ToString()) as DataTemplate;
         }
