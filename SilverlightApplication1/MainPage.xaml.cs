@@ -32,10 +32,12 @@ namespace SilverlightApplication1
             list.Add(new AutoCompleteItem(4, "22341 Greken Andersson"));
             list.Add(new AutoCompleteItem(5, "22345 Karl-Oskar Andersson"));
             Names = new ObservableCollection<AutoCompleteItem>(list);
+            SelectedX = list[2];
             
         }
 
         private ObservableCollection<AutoCompleteItem> _items;
+        private AutoCompleteItem _selectedX;
 
         public ObservableCollection<AutoCompleteItem> Names
         {
@@ -43,6 +45,10 @@ namespace SilverlightApplication1
             set { _items = value; RaisePropertyChanged(() => Names); }
         }
 
-
+        public AutoCompleteItem SelectedX
+        {
+            get { return _selectedX; }
+            set { _selectedX = value; RaisePropertyChanged(() => SelectedX); }
+        }
     }
 }

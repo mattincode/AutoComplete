@@ -1,10 +1,8 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using System.Linq.Expressions;
+﻿using System.Linq;
 using System.Windows;
-using System.Windows.Controls;
 using System.Windows.Media;
 using SilverlightApplication1.Controls;
+using System.Windows.Input;
 
 namespace SilverlightApplication1.AutoCompleteStates
 {
@@ -15,13 +13,45 @@ namespace SilverlightApplication1.AutoCompleteStates
     {
         public AutoCompleteEditing(AutoCompleteControl control) : base(control)
         {
+            System.Diagnostics.Debug.WriteLine("AutoCompleteEditing");
             UserControl.ClearBtn.Click += ClearBtn_OnClick;            
-            DrawUserInterface();
+            UserControl.ItemTextBox.InnerTextBox.KeyDown += ItemTextBox_KeyDown; // We use the inner textbox since the autocomplete swallows the enter key
+            UpdateUserInterface();
+        }
+
+        private void ItemTextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            // Set the selected item on enter 
+            if (e.Key == Key.Enter)
+            {         
+                if (UserControl.ItemTextBox.SelectedItem != null)
+                {                    
+                    System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", UserControl.ItemTextBox.SelectedItem);
+                    UserControl.SelectedItem = UserControl.Items.First(item => item.Name.Equals(UserControl.ItemTextBox.SelectedItem));
+                }
+            }
+            else if (e.Key == Key.Escape)
+            {
+                if (UserControl.SelectedItem != null)
+                {
+                    // Reset the selecteditem
+                    UserControl.ItemTextBox.IsTextCompletionEnabled = false;
+                    UserControl.ItemTextBox.Text = UserControl.SelectedItem.Name;
+                    UserControl.ItemTextBox.InnerTextBox.Text = UserControl.SelectedItem.Name;
+                    UserControl.SetState(new AutoCompleteNormal(UserControl));
+                }
+                else
+                {
+                    ClearEditedText();
+                }
+                e.Handled = true;
+            }
         }
 
         public override void Dispose()
         {            
-            UserControl.ClearBtn.Click -= ClearBtn_OnClick;            
+            UserControl.ClearBtn.Click -= ClearBtn_OnClick;
+            UserControl.ItemTextBox.InnerTextBox.KeyDown -= ItemTextBox_KeyDown;
         }
 
 
@@ -32,15 +62,16 @@ namespace SilverlightApplication1.AutoCompleteStates
 
         private void ClearEditedText()
         {
-            UserControl.ItemTextBox.IsTextCompletionEnabled = false; 
+            UserControl.ItemTextBox.IsTextCompletionEnabled = false;             
             UserControl.ItemTextBox.Text = "";
-            //UserControl.ItemTextBox.Focus();            
+            UserControl.SelectedItem = null;       // Clear selected item    
             UserControl.SetState(new AutoCompleteWatermark(UserControl));
         }                
 
-        private void DrawUserInterface()
+        private void UpdateUserInterface()
         {            
             var txt = UserControl.ItemTextBox;
+            txt.InnerTextBox.Text = "";
             txt.Text = "";
             txt.FontStyle = FontStyles.Normal;
             txt.IsTextCompletionEnabled = true; // Populates the textbox with the topmost hit.

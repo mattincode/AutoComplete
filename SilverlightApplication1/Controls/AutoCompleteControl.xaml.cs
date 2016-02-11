@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
+﻿using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Animation;
-using System.Windows.Shapes;
 using SilverlightApplication1.AutoCompleteStates;
 using Telerik.Windows.Controls;
 
@@ -18,7 +9,7 @@ namespace SilverlightApplication1.Controls
     public partial class AutoCompleteControl : UserControl, IAutoCompleteControl, IAutoCompleteControlUx
     {
         protected AutoCompleteBase CurrentState { get; set; }
-        public AutoCompleteBox ItemTextBox { get { return ItemTextBoxX; } }
+        public SelectableAutoCompleteBox ItemTextBox { get { return ItemTextBoxX; } }
         public RadButton ClearBtn { get { return ClearBtnX; } }
 
         #region Dependency properties           
@@ -35,7 +26,25 @@ namespace SilverlightApplication1.Controls
             set { SetValue(WatermarkProperty, value); }
         }
 
-        public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register("SelectedItem", typeof(AutoCompleteItem), typeof(UserControl), null);
+        public static readonly DependencyProperty SelectedItemProperty = DependencyProperty.Register("SelectedItem", typeof(AutoCompleteItem), typeof(UserControl), new PropertyMetadata(null, OnSelectedItemChanged));
+
+        private static void OnSelectedItemChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            if (e.OldValue != e.NewValue)
+            {
+                var control = d as AutoCompleteControl;
+                if (control == null) return;
+                if (e.NewValue == null)
+                {
+                    control.SetState(new AutoCompleteWatermark(control));
+                }
+                else
+                {
+                    control.SetState(new AutoCompleteNormal(control));
+                }
+            }
+        }
+
         public AutoCompleteItem SelectedItem
         {
             get { return (AutoCompleteItem)GetValue(SelectedItemProperty); }

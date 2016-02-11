@@ -10,19 +10,15 @@
     d:DesignHeight="300" d:DesignWidth="400">
 
     <Grid x:Name="LayoutRoot" Background="White" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-
-
-        <sdk:AutoCompleteBox x:Name="ItemTextBoxX" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
-            <sdk:AutoCompleteBox.ItemTemplate>
+        <controls:SelectableAutoCompleteBox x:Name="ItemTextBoxX" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <controls:SelectableAutoCompleteBox.ItemTemplate>
                 <DataTemplate>
                     <controls:TypeAheadHighlightningControl Text="{Binding}" HighlightedText="{Binding Text, ElementName=ItemTextBoxX}"/>
                 </DataTemplate>
-            </sdk:AutoCompleteBox.ItemTemplate>
-        </sdk:AutoCompleteBox>
+            </controls:SelectableAutoCompleteBox.ItemTemplate>
+        </controls:SelectableAutoCompleteBox>
         <telerik:RadButton x:Name="ClearBtnX" Style="{StaticResource ClearButtonStyle}" >
             <Image Width="16" Height="16" Source="/SilverlightApplication1;component/Images/Remove.png" HorizontalAlignment="Center" VerticalAlignment="Center" Visibility="Collapsed" />
         </telerik:RadButton>
-
-
     </Grid>
 </UserControl>

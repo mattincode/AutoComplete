@@ -80,7 +80,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="AutoCompleteControl.cs" />
     <Compile Include="AutoCompleteItem.cs" />
     <Compile Include="AutoCompleteStates\AutoCompleteBase.cs" />
     <Compile Include="AutoCompleteStates\AutoCompleteEditing.cs" />
@@ -90,6 +89,7 @@
     <Compile Include="Controls\AutoCompleteControl.xaml.cs">
       <DependentUpon>AutoCompleteControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SelectableAutoCompleteBox.cs" />
     <Compile Include="Controls\TypeAheadHighlightningControl.xaml.cs">
       <DependentUpon>TypeAheadHighlightningControl.xaml</DependentUpon>
     </Compile>

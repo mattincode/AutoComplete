@@ -5,6 +5,7 @@ using SilverlightApplication1.Controls;
 
 namespace SilverlightApplication1.AutoCompleteStates
 {
+    // Presents a watermark until editing begins
     internal class AutoCompleteWatermark : AutoCompleteBase
     {
         public override void Dispose()
@@ -17,13 +18,14 @@ namespace SilverlightApplication1.AutoCompleteStates
         public AutoCompleteWatermark(AutoCompleteControl control)
             : base(control)
         {
+            System.Diagnostics.Debug.WriteLine("AutoCompleteWatermark");
             // If selection exists
             if (control.SelectedItem == null)
             {
                 var txt = UserControl.ItemTextBox;
                 txt.KeyDown += txt_KeyDown;
                 txt.GotFocus += txt_GotFocus;
-                DrawUserInterface();
+                UpdateUserInterface();
             }
             else
             {
@@ -31,7 +33,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             }
         }
 
-        private void DrawUserInterface()
+        private void UpdateUserInterface()
         {                             
             UserControl.BorderBrush = new SolidColorBrush(Colors.Black);
             UserControl.ClearBtn.Visibility = Visibility.Collapsed;                 
@@ -39,8 +41,8 @@ namespace SilverlightApplication1.AutoCompleteStates
             var txt = UserControl.ItemTextBox;
             txt.Foreground = new SolidColorBrush(Colors.DarkGray);
             txt.FontStyle = FontStyles.Italic;
-            txt.Text = UserControl.Watermark;
-
+            txt.Text = UserControl.Watermark;           
+            System.Diagnostics.Debug.WriteLine("Watermark set to: {0}", UserControl.Watermark);
         }
 
         void txt_GotFocus(object sender, RoutedEventArgs e)
