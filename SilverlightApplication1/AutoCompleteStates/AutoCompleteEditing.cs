@@ -14,31 +14,63 @@ namespace SilverlightApplication1.AutoCompleteStates
         public AutoCompleteEditing(AutoCompleteControl control) : base(control)
         {
             System.Diagnostics.Debug.WriteLine("AutoCompleteEditing");
-            UserControl.ClearBtn.Click += ClearBtn_OnClick;            
+            // Subscribe to events
+            UserControl.ClearBtn.Click += ClearBtn_OnClick;                        
             UserControl.ItemTextBox.InnerTextBox.KeyDown += ItemTextBox_KeyDown; // We use the inner textbox since the autocomplete swallows the enter key
+            UserControl.ItemTextBox.DropDownClosing += ItemTextBox_DropDownClosing;
+            UserControl.LostFocus += UserControl_LostFocus;
+            // Update the controls
             UpdateUserInterface();
         }
 
+        private void UserControl_LostFocus(object sender, RoutedEventArgs e)
+        {            
+            if (UserControl.ItemTextBox.IsDropDownOpen) return;
+
+            // Set correct state on lost focus                
+            if (UserControl.SelectedItem != null)
+            {
+                UserControl.SetState(new AutoCompleteNormal(UserControl));
+            }
+            else
+            {
+                UserControl.SetState(new AutoCompleteWatermark(UserControl));
+            }
+        }
+
+        private void ItemTextBox_DropDownClosing(object sender, System.Windows.Controls.RoutedPropertyChangingEventArgs<bool> e)
+        {
+            System.Diagnostics.Debug.WriteLine("DropDownClosing {0}", UserControl.ItemTextBox.SelectedItem);            
+            if (UserControl.ItemTextBox.SelectedItem != null) 
+            {
+                TrySetSelectedItem(UserControl.ItemTextBox.SelectedItem.ToString());
+            }            
+        }
+
+        public override void Dispose()
+        {
+            UserControl.ClearBtn.Click -= ClearBtn_OnClick;
+            UserControl.ItemTextBox.InnerTextBox.KeyDown -= ItemTextBox_KeyDown;
+            UserControl.ItemTextBox.DropDownClosing -= ItemTextBox_DropDownClosing;
+            UserControl.LostFocus -= UserControl_LostFocus;         
+        }
+        
         private void ItemTextBox_KeyDown(object sender, KeyEventArgs e)
         {
             // Set the selected item on enter 
             if (e.Key == Key.Enter)
             {         
                 if (UserControl.ItemTextBox.SelectedItem != null)
-                {                    
-                    System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", UserControl.ItemTextBox.SelectedItem);
-                    UserControl.SelectedItem = UserControl.Items.First(item => item.Name.Equals(UserControl.ItemTextBox.SelectedItem));
+                {                                        
+                    TrySetSelectedItem(UserControl.ItemTextBox.SelectedItem.ToString());
                 }
             }
             else if (e.Key == Key.Escape)
             {
+                UserControl.ItemTextBox.IsDropDownOpen = false;
                 if (UserControl.SelectedItem != null)
                 {
-                    // Reset the selecteditem
-                    UserControl.ItemTextBox.IsTextCompletionEnabled = false;
-                    UserControl.ItemTextBox.Text = UserControl.SelectedItem.Name;
-                    UserControl.ItemTextBox.InnerTextBox.Text = UserControl.SelectedItem.Name;
-                    UserControl.SetState(new AutoCompleteNormal(UserControl));
+                    UndoAndResetToSelectedItem();
                 }
                 else
                 {
@@ -48,22 +80,39 @@ namespace SilverlightApplication1.AutoCompleteStates
             }
         }
 
-        public override void Dispose()
-        {            
-            UserControl.ClearBtn.Click -= ClearBtn_OnClick;
-            UserControl.ItemTextBox.InnerTextBox.KeyDown -= ItemTextBox_KeyDown;
-        }
-
-
         private void ClearBtn_OnClick(object sender, RoutedEventArgs routedEventArgs)
         {
             ClearEditedText();
+        }        
+
+        private bool TrySetSelectedItem(string selectedName)
+        {
+            if (UserControl.Items == null || selectedName == string.Empty) return false;
+            var selectedItem = UserControl.Items.FirstOrDefault(item => item.Name.Equals(selectedName));
+            if (selectedName != null)
+            {
+                UserControl.SelectedItem = selectedItem;
+                System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", selectedItem.Name);
+                return true;
+            }
+            return false;
+        }
+
+        private void UndoAndResetToSelectedItem()
+        {
+            // Reset the selecteditem
+            UserControl.ItemTextBox.IsTextCompletionEnabled = false;
+            UserControl.ItemTextBox.Text = UserControl.SelectedItem.Name;
+            UserControl.ItemTextBox.InnerTextBox.Text = UserControl.SelectedItem.Name;
+            UserControl.SetState(new AutoCompleteNormal(UserControl));
         }
 
         private void ClearEditedText()
         {
+            System.Diagnostics.Debug.WriteLine("Clear selection");
             UserControl.ItemTextBox.IsTextCompletionEnabled = false;             
             UserControl.ItemTextBox.Text = "";
+            UserControl.ItemTextBox.InnerTextBox.Text = "";
             UserControl.SelectedItem = null;       // Clear selected item    
             UserControl.SetState(new AutoCompleteWatermark(UserControl));
         }                

@@ -11,6 +11,7 @@
     <StackPanel x:Name="LayoutRoot" Background="White">
         <!--<controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" Width="200" Height="30"/>-->
         <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" SelectedItem="{Binding SelectedX, Mode=TwoWay}" Width="200" Height="30"/>
+        <controls:AutoCompleteControl Watermark="Namn eller AnstNr" Items="{Binding Names}" Width="200" Height="30"/>
         <ListBox ItemsSource="{Binding Names}">
             <ListBox.ItemTemplate>
                 <DataTemplate>
@@ -19,5 +20,6 @@
             </ListBox.ItemTemplate>
         </ListBox>
         <TextBlock Text="{Binding SelectedX.Name}"/>
+        <Button Content="Start garbage collection" Click="Button_Click"></Button>
     </StackPanel>
 </UserControl>

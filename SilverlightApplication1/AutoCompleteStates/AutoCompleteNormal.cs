@@ -10,7 +10,7 @@ namespace SilverlightApplication1.AutoCompleteStates
         public override void Dispose()
         {
             UserControl.ItemTextBox.GotFocus -= ItemTextBox_GotFocus;
-            UserControl.ItemTextBox.KeyDown -= ItemTextBox_KeyDown;
+            UserControl.ItemTextBox.KeyDown -= ItemTextBox_KeyDown;          
         }
 
         public AutoCompleteNormal(AutoCompleteControl control)
@@ -41,6 +41,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             var txt = UserControl.ItemTextBox;
             txt.Foreground = new SolidColorBrush(Colors.Black);
             txt.FontStyle = FontStyles.Normal;
+            txt.InnerTextBox.Text = UserControl.SelectedItem.Name;
             txt.Text = UserControl.SelectedItem.Name;
         }
 

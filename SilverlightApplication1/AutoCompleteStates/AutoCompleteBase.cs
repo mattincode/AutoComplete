@@ -21,7 +21,7 @@ namespace SilverlightApplication1.AutoCompleteStates
 
         protected AutoCompleteBase(AutoCompleteControl control)
         {
-            UserControl = control;
+            UserControl = control;            
         }
 
         public abstract void Dispose();

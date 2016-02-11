@@ -19,6 +19,11 @@ namespace SilverlightApplication1
             _vm = new ViewModel();
             DataContext = _vm;
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.GC.Collect();
+        }
     }
 
     public class ViewModel : BaseViewModel

@@ -6,11 +6,12 @@ using Telerik.Windows.Controls;
 
 namespace SilverlightApplication1.Controls
 {
-    public partial class AutoCompleteControl : UserControl, IAutoCompleteControl, IAutoCompleteControlUx
+    /// <summary>
+    /// Autocomplete control with simple logic that only sets SelectedItem when the user selects it
+    /// </summary>
+    public partial class AutoCompleteControl : UserControl, IAutoCompleteControl
     {
         protected AutoCompleteBase CurrentState { get; set; }
-        public SelectableAutoCompleteBox ItemTextBox { get { return ItemTextBoxX; } }
-        public RadButton ClearBtn { get { return ClearBtnX; } }
 
         #region Dependency properties           
         public static readonly DependencyProperty ItemsProperty = DependencyProperty.Register("Items", typeof(ObservableCollection<AutoCompleteItem>), typeof(UserControl), null);

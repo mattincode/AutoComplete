@@ -12,7 +12,7 @@ namespace SilverlightApplication1.AutoCompleteStates
         {
             var txt = UserControl.ItemTextBox;
             txt.KeyDown -= txt_KeyDown;
-            txt.GotFocus -= txt_GotFocus;        
+            txt.GotFocus -= txt_GotFocus;            
         }
 
         public AutoCompleteWatermark(AutoCompleteControl control)
