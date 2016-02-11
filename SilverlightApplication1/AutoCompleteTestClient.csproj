@@ -31,8 +31,7 @@
     <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
     <LinkedServerProject>
     </LinkedServerProject>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
+    <NuGetPackageImportStamp>b6b9098e</NuGetPackageImportStamp>
   </PropertyGroup>
   <!-- This property group is only here to support building this project using the 
        MSBuild 3.5 toolset. In order to work correctly with this older toolset, it needs 
@@ -72,12 +71,9 @@
     <Reference Include="System.Windows.Controls.Input, Version=5.0.5.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Browser" />
-    <Reference Include="Telerik.Windows.Controls">
-      <HintPath>..\..\..\..\..\..\Source Control\TFS\Securitas GSP\Main\Source\libs\Telerik\Telerik.Windows.Controls.dll</HintPath>
-    </Reference>
-    <Reference Include="XamlSpy, Version=3.0.0.0, Culture=neutral, PublicKeyToken=bc9b0c37bf06c6a9, processorArchitecture=MSIL">
-      <HintPath>..\packages\XamlSpyLibs.3.0.3\lib\sl5\XamlSpy.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Telerik.Windows.Controls, Version=2012.1.326.1050, Culture=neutral, PublicKeyToken=5803cfa389c90ce7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libs\Telerik.Windows.Controls.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -123,7 +119,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
     <None Include="Properties\AppManifest.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -144,11 +139,4 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <Import Project="..\packages\XamlSpy.3.0.3\build\sl\XamlSpy.targets" Condition="Exists('..\packages\XamlSpy.3.0.3\build\sl\XamlSpy.targets')" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\XamlSpy.3.0.3\build\sl\XamlSpy.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\XamlSpy.3.0.3\build\sl\XamlSpy.targets'))" />
-  </Target>
 </Project>

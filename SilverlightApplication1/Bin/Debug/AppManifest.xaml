@@ -3,7 +3,6 @@
     <AssemblyPart x:Name="SilverlightApplication1" Source="SilverlightApplication1.dll" />
     <AssemblyPart x:Name="System.Windows.Controls.Input" Source="System.Windows.Controls.Input.dll" />
     <AssemblyPart x:Name="Telerik.Windows.Controls" Source="Telerik.Windows.Controls.dll" />
-    <AssemblyPart x:Name="XamlSpy" Source="XamlSpy.dll" />
     <AssemblyPart x:Name="System.Windows.Controls" Source="System.Windows.Controls.dll" />
   </Deployment.Parts>
 </Deployment>

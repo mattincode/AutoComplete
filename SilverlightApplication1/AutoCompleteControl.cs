@@ -6,7 +6,6 @@ using System.Windows.Data;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Xml;
-using FirstFloor.XamlSpy;
 using SilverlightApplication1.AutoCompleteStates;
 using Telerik.Windows.Controls;
 using Telerik.Windows.Controls.Buttons;
