@@ -91,8 +91,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             var selectedItem = UserControl.Items.FirstOrDefault(item => item.Name.Equals(selectedName));
             if (selectedName != null)
             {
-                UserControl.SelectedItem = selectedItem;
-                System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", selectedItem.Name);
+                UserControl.UserSetSelectedItem(selectedItem);                                
                 return true;
             }
             return false;

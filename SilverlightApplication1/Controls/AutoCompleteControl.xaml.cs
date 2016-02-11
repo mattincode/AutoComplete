@@ -2,7 +2,6 @@
 using System.Windows;
 using System.Windows.Controls;
 using SilverlightApplication1.AutoCompleteStates;
-using Telerik.Windows.Controls;
 
 namespace SilverlightApplication1.Controls
 {
@@ -52,6 +51,14 @@ namespace SilverlightApplication1.Controls
             set { SetValue(SelectedItemProperty, value); }
         }
         #endregion Dependency properties
+
+        // Sets the selected item (from user initiated action)
+        // This may be overriden to handle different types of selecteditems        
+        internal void UserSetSelectedItem(AutoCompleteItem selectedItem)
+        {
+            SelectedItem = selectedItem;
+            System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", selectedItem.Name);
+        }
 
         public void SetState(AutoCompleteBase newState)
         {
