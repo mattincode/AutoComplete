@@ -9,6 +9,7 @@ namespace SilverlightApplication1.AutoCompleteStates
     {
         public override void Dispose()
         {
+            UserControl.ClearBtn.Click -= ClearBtn_OnClick;
             UserControl.ItemTextBox.GotFocus -= ItemTextBox_GotFocus;
             UserControl.ItemTextBox.KeyDown -= ItemTextBox_KeyDown;          
         }
@@ -19,6 +20,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             System.Diagnostics.Debug.WriteLine("AutoCompleteNormal");
             UserControl.ItemTextBox.GotFocus += ItemTextBox_GotFocus;
             UserControl.ItemTextBox.KeyDown += ItemTextBox_KeyDown;
+            UserControl.ClearBtn.Click += ClearBtn_OnClick;
             UpdateUserInterface();
         }
 
@@ -33,10 +35,25 @@ namespace SilverlightApplication1.AutoCompleteStates
             UserControl.SetState(new AutoCompleteEditing(UserControl));
         }
 
+        private void ClearBtn_OnClick(object sender, RoutedEventArgs routedEventArgs)
+        {
+            ClearEditedText();
+        }
+
+        private void ClearEditedText()
+        {
+            System.Diagnostics.Debug.WriteLine("Clear selection");
+            UserControl.ItemTextBox.IsTextCompletionEnabled = false;
+            UserControl.ItemTextBox.Text = "";
+            UserControl.ItemTextBox.InnerTextBox.Text = "";
+            UserControl.UserSetSelectedItem(null);            
+            UserControl.SetState(new AutoCompleteWatermark(UserControl));
+        }
+
         private void UpdateUserInterface()
         {
             UserControl.BorderBrush = new SolidColorBrush(Colors.Black);
-            UserControl.ClearBtn.Visibility = Visibility.Collapsed;
+            UserControl.ClearBtn.Visibility = Visibility.Visible;
 
             var txt = UserControl.ItemTextBox;
             txt.Foreground = new SolidColorBrush(Colors.Black);

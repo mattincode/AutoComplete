@@ -57,7 +57,7 @@ namespace SilverlightApplication1.Controls
         internal void UserSetSelectedItem(AutoCompleteItem selectedItem)
         {
             SelectedItem = selectedItem;
-            System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", selectedItem.Name);
+            System.Diagnostics.Debug.WriteLine("Selected Item set: {0}", selectedItem == null ? "null" : selectedItem.Name);
         }
 
         public void SetState(AutoCompleteBase newState)

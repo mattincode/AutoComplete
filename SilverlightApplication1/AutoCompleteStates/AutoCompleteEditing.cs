@@ -112,7 +112,7 @@ namespace SilverlightApplication1.AutoCompleteStates
             UserControl.ItemTextBox.IsTextCompletionEnabled = false;             
             UserControl.ItemTextBox.Text = "";
             UserControl.ItemTextBox.InnerTextBox.Text = "";
-            UserControl.SelectedItem = null;       // Clear selected item    
+            UserControl.UserSetSelectedItem(null);
             UserControl.SetState(new AutoCompleteWatermark(UserControl));
         }                
 
